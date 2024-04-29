@@ -40,4 +40,11 @@ secant(f, 0, 1)
 newton(f, 1)
 
 # Now we move onto the multivariate methods.
+
+# First we will define a function of interest as an expression.
+f = expression(sqrt(4-x^2-y^2))
+
+# Below is Newton's method for a 3D space. Notice the inputs:
+# 1) a function, 2) a starting x input, 3) a starting y input.
+newton2(f, 0.5, 1)
 }

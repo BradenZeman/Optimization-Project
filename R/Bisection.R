@@ -8,14 +8,65 @@
 
 bisection = function(f, a, b, n=100, sigma = 0.0001, graph = FALSE) {
 
+  # This code evaluates the function at a specified x value
+  g = function(x){eval(f)}
+
+  # Error message if function is not an expression
+  if (is.expression(f)) {
+  } else {
+    stop("f is not an expression.")
+  }
+
+  # Error message if lower bound is not a number
+  if (is.double(a)) {
+  } else {
+    stop("a (lower bound) is not a number.")
+  }
+
+  # Error message if upper bound is not a number
+  if (is.double(b)) {
+  } else {
+    stop("b (upper bound) is not a number.")
+  }
+
+  # Error message if n is not an integer
+  if (is.numeric(n)) {
+  } else {
+    stop("n (iterations) is not an integer.")
+  }
+
+  # Error message if sigma is not a number
+  if (is.double(sigma)) {
+  } else {
+    stop("sigma (error) is not a number.")
+  }
+
+  # Error message if lower bound is outside a reasonable domain of evaluation
+  if (suppressWarnings(is.na(g(a)))) {
+    stop("a (lower bound) is outside the domain of the function")
+  } else {
+  }
+
+  # Error message if upper bound is outside a reasonable domain of evaluation
+  if (suppressWarnings(is.na(g(b)))) {
+    stop("b (upper bound) is outside the domain of the function")
+  } else {
+  }
+
+  # Error Message if graph is not a boolean expression
+  if (isTRUE(graph)) {
+  } else {
+    if (isFALSE(graph)) {
+    } else {
+      stop("graph is not a boolean statement.")
+    }
+  }
+
   # This code calculates the first derivative of the function
   derivative = D(f, "x")
 
   # This code evaluates the derivative at a specified x value
   evalDerivative = function(x){eval(derivative)}
-
-  # This code evaluates the function at a specified x value
-  g = function(x){eval(f)}
 
   # We define needed variables and vectors to be updated throughout process
   # graphLow, graphUp, midpoint, xdomain, ydomain are needed for graphing

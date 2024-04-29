@@ -8,9 +8,16 @@
 
 \description{A multivariate local linearization technique. The incremental update equation is derived from the quadratic expansion of the Taylor series for the function with the gradient set equal to zero. We obtain a very similar equation as the univariate case, except everything is given as matrices.}
 
-\usage{}
+\usage{newton2(f, a, b, n = 100, sigma = 0.0001, graph = FALSE)}
 
-\arguments{}
+\arguments{
+  \item{f}{Function given as an expression.}
+  \item{a}{Initial starting x value.}
+  \item{b}{Initial starting y value.}
+  \item{n}{Number of iterations to compute. Default is 100.}
+  \item{sigma}{Decimal place accuracy - stopping condition. Default is 0.0001.}
+  \item{graph}{If TRUE, two graphs will be returned. Otherwise, not used.}
+}
 
 \details{The selection criteria at each iterative step is given by:
 
@@ -39,7 +46,9 @@ Lastly, we rename \eqn{\bf x^*} to \eqn{\bf x^{(t+1)}}. Now we have the updating
 
 }
 
-\value{}
+\value{If graph = FALSE, a list of values will be returned. In that list will be the Maximum x-value, Maximum y-value, Maximum z-value, the number of iterations needed to reach stopping condition (n), and the decimal level of accuracy (sigma).
+
+If graph = TRUE, that same list of values will be returned with two graphs. The first graph plots a 3D surface image with the optima point highlighted. The second graph plots the contour lines with the optima hihglighted.}
 
 \references{Givens, Geof H. Computational Statistics. 2nd ed., John Wiley & Sons Inc., 2013.}
 
@@ -47,7 +56,35 @@ Lastly, we rename \eqn{\bf x^*} to \eqn{\bf x^{(t+1)}}. Now we have the updating
 
 \note{See related optimization functions \link{Bisection.Rd}, \link{Secant.Rd}, \link{Newton.Rd}, \link{NelderMead.Rd}.}
 
-\examples{}
+\examples{
+# The following examples will show how to run and utilize each of the
+# arguments in the Newton function.
+
+# First we must define a function of interest as an expression.
+f = expression(sqrt(4-x^2-y^2))
+
+# At a minimum, we must input a starting x and y value in order to
+# start the iterative process. Make sure its within a domain and
+# range which can be evaluated.
+newton2(f, 0.5, 1)
+
+# We can also specify the number of iterations if necessary.
+# Newton's method seems to converge very quickly so changing
+# this value to anything greater than 100 is very unlikely.
+newton2(f, 0.5, 1, n = 2)
+
+# We can also specify the decimal accuracy we wish to achieve
+# when finding the optima. Since Newton's method converges very
+# quickly, we often do not need to change this value. The decimal
+# accuracy stopping condition supercedes the iteration number and
+# will stop when the sigma value is obtain.
+newton2(f, 0.5, 1, sigma = 0.1)
+
+# Lastly, we can chose to output two graphs. The first graph
+# will be a 3D surface plot. The second graph will be a contour
+# plot. In both the optima will be highlighted.
+newton2(f, 0.5, 1, graph = T)
+}
 
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the

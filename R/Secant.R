@@ -9,14 +9,65 @@
 
 secant = function(f, a, b, n=100, sigma = 0.0001, graph = FALSE) {
 
+  # This code evaluates the function at a specified x value
+  g = function(x){eval(f)}
+
+  # Error message if function is not an expression
+  if (is.expression(f)) {
+  } else {
+    stop("f is not an expression.")
+  }
+
+  # Error message if first point is not a number
+  if (is.double(a)) {
+  } else {
+    stop("a (first point) is not a number.")
+  }
+
+  # Error message if second point is not a number
+  if (is.double(b)) {
+  } else {
+    stop("b (second point) is not a number.")
+  }
+
+  # Error message if n is not an integer
+  if (is.numeric(n)) {
+  } else {
+    stop("n (iterations) is not an integer.")
+  }
+
+  # Error message if sigma is not a number
+  if (is.double(sigma)) {
+  } else {
+    stop("sigma (error) is not a number.")
+  }
+
+  # Error message if first point is outside a reasonable domain of evaluation
+  if (suppressWarnings(is.na(g(a)))) {
+    stop("a (first point) is outside the domain of the function")
+  } else {
+  }
+
+  # Error message if second point is outside a reasonable domain of evaluation
+  if (suppressWarnings(is.na(g(b)))) {
+    stop("b (second point) is outside the domain of the function")
+  } else {
+  }
+
+  # Error Message if graph is not a boolean expression
+  if (isTRUE(graph)) {
+  } else {
+    if (isFALSE(graph)) {
+    } else {
+      stop("graph is not a boolean statement.")
+    }
+  }
+
   # This code calculates the first derivative of the function
   derivative = D(f, "x")
 
   # This code evaluates the derivative at a specified x value
   evalDerivative = function(x){eval(derivative)}
-
-  # This code evaluates the function at a specified x value
-  g = function(x){eval(f)}
 
   # We define needed variables and vectors to be updated throughout process
   # xValues, yValues, xdomain, ydomain are needed for graphing

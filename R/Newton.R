@@ -9,6 +9,48 @@
 
 newton = function(f, a, n=100, sigma = 0.0001, graph = FALSE) {
 
+  # This code evaluates the function at a specified x value
+  g = function(x){eval(f)}
+
+  # Error message if function is not an expression
+  if (is.expression(f)) {
+  } else {
+    stop("f is not an expression.")
+  }
+
+  # Error message if x input is not a number
+  if (is.double(a)) {
+  } else {
+    stop("a (x input) is not a number.")
+  }
+
+  # Error message if n is not an integer
+  if (is.numeric(n)) {
+  } else {
+    stop("n (iterations) is not an integer.")
+  }
+
+  # Error message if sigma is not a number
+  if (is.double(sigma)) {
+  } else {
+    stop("sigma (error) is not a number.")
+  }
+
+  # Error message if x input is outside a reasonable domain of evaluation
+  if (suppressWarnings(is.na(g(a)))) {
+    stop("a (x input) is outside the domain of the function")
+  } else {
+  }
+
+  # Error Message if graph is not a boolean expression
+  if (isTRUE(graph)) {
+  } else {
+    if (isFALSE(graph)) {
+    } else {
+      stop("graph is not a boolean statement.")
+    }
+  }
+
   # This code calculates the first derivative of the function
   dx = D(f, "x")
 
@@ -20,9 +62,6 @@ newton = function(f, a, n=100, sigma = 0.0001, graph = FALSE) {
 
   # This code evaluates the second derivative at a specified x value
   evaldx2 = function(x){eval(dx2)}
-
-  # This code evaluates the function at a specified x value
-  g = function(x){eval(f)}
 
   # We define needed variables and vectors to be updated throughout process
   # xValues, yValues are needed for graphing
