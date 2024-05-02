@@ -54,7 +54,7 @@ If graph = TRUE, that same list of values will be returned with two graphs. The 
 
 \author{Braden Zeman}
 
-\note{See related optimization functions \link{Bisection.Rd}, \link{Secant.Rd}, \link{Newton.Rd}, \link{NelderMead.Rd}.}
+\note{See related optimization functions \link{Bisection.Rd}, \link{Secant.Rd}, \link{Newton.Rd}.}
 
 \examples{
 # The following examples will show how to run and utilize each of the
@@ -84,6 +84,31 @@ newton2(f, 0.5, 1, sigma = 0.1)
 # will be a 3D surface plot. The second graph will be a contour
 # plot. In both the optima will be highlighted.
 newton2(f, 0.5, 1, graph = T)
+
+# One of the last things of importance is to discuss the
+# sensitivity of Newton's method. When searching over
+# 3D space, it may find local optima instead of global optima
+# based on the defined starting values. For instance, consider:
+f = expression(-(1+cos(12*sqrt(x^2+y^2)))/(0.5*(x^2+y^2)+2))
+newton2(f, 1, 1, graph = T)
+
+# Due to the oscillating nature of the function, there are
+# a plethora of local minima and maxima that Newton's method
+# will try to search for. Ultimately, it found a local minima.
+
+# If we change the starting point, we can obtain a new optima.
+newton2(f, 0.5, 0.5, graph = T)
+
+# This time it is a local maxima for the function.
+
+# Let's try one more time.
+newton2(f, 0.05, 0.05, graph = T)
+
+# Now we've actually identified the global minima. The main
+# point of this demonstration was to showcase that initial
+# starting points matter greatly. Newton's method searches for
+# optima whether local or global nearby the starting point.
+
 }
 
 

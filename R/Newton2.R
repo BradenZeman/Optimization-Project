@@ -155,7 +155,7 @@ newton2 = function(f, a, b, n = 100, sigma = 0.0001, graph = FALSE) {
 
   # Creates a dataframe of the relevant output
   graphing = data.frame(xValues, yValues, zValues)
-  results = data.frame(Maximum_X = xNew[1], Maximum_Y = xNew[2], Maximum_Z = z,
+  results = data.frame(Optima_X = xNew[1], Optima_Y = xNew[2], Optima_Z = z,
                        Iterations = index, Sigma = sigma)
 
   # If the user specified TRUE, then two graphs will be plotted

@@ -42,7 +42,7 @@ And thus, we can slot this back into Newton's method and get the updating equati
 
 }
 
-\value{If graph = FALSE, a list of values will be returned. In that list will be the Maximum x-value, Maximum y-value, the number of iterations needed to reach stopping condition (n), and the decimal level of accuracy (sigma).
+\value{If graph = FALSE, a list of values will be returned. In that list will be the Optima x-value, Optima y-value, the number of iterations needed to reach stopping condition (n), and the decimal level of accuracy (sigma).
 
 If graph = TRUE, that same list of values will be returned with a graph. The graph plots the function and highlights the optima point.}
 
@@ -50,7 +50,7 @@ If graph = TRUE, that same list of values will be returned with a graph. The gra
 
 \author{Braden Zeman}
 
-\note{See related optimization functions \link{Bisection.Rd}, \link{Newton.Rd}, \link{Newton2.Rd}, \link{NelderMead.Rd}.}
+\note{See related optimization functions \link{Bisection.Rd}, \link{Newton.Rd}, \link{Newton2.Rd}.}
 
 \examples{
 # The following examples will show how to run and utilize each of the
@@ -59,7 +59,7 @@ If graph = TRUE, that same list of values will be returned with a graph. The gra
 # First we must define a function of interest as an expression.
 f = expression(log(x)/(1+x))
 
-# At the minimum, we must input a function and two points in order to
+# We are required to input a function and two points in order to
 # calculate the secant line. Using the secant lines, we will incrementally
 # approach the optima for the function.
 secant(f, 2, 5)
@@ -77,9 +77,52 @@ secant(f, 2, 5, n = 9)
 # default sigma is four decimal places.
 secant(f, 2, 5, sigma = 0.00001)
 
+# Note: for the faster-converging optimization methods, the true sigma
+# value may be smaller than the returned sigma since the method
+# gains accuracy very quickly across small iterations. Thus, treat
+# sigma as a measure of "at least" this good.
+
 # Lastly, we can chose to output a graph of the secant method. The
 # graph will plot the function and highlight the optima point.
 secant(f, 2, 5, graph = T)
+
+# In the following section, an example will be given to outline what
+# an "optima" actual is. It is occurs when the slope or derivative of
+# a function is zero. This can occur as a maxima, minima, or other.
+# Consider the following:
+f = expression((x-2)^3+2)
+secant(f, 1.6, 3, graph = T)
+
+# The optima point identified is neither a maximum nor a minimum.
+# Instead it is the location when the slope of the function is zero.
+# Keep this in mind as you optimize functions and input intervals.
+
+# Consider another example of the importance of defining intervals:
+f = expression(-x^4+x^3+x^2+3)
+secant(f, -1, 1.7, graph = T)
+
+# In this case, even though we have three cases in which the slope
+# is zero, the secant method narrows in on the local minima.
+
+# However, if we take the same function and shrink the interval
+# the secant method narrows in on another value.
+secant(f, -1, -0.2, graph = T)
+
+# Here it narrows in on the local maxima of the function.
+
+# Consider another interval.
+secant(f, 0.5, 1.7, graph = T)
+
+# Here it narrows in on the global maxima of the entire function.
+
+# Consider another interval.
+secant(f, -0.3, 0.4, graph = T)
+
+# And with this interval, we focus back in on the local minima.
+# The main point of this display is to be thoughtful of the
+# interval you define as the secant method will obtain
+# different results.
+
 }
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the

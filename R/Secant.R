@@ -118,7 +118,7 @@ secant = function(f, a, b, n=100, sigma = 0.0001, graph = FALSE) {
   # Creates a dataframe of the relevant secant points at each step
   # as well as the important optima information
   graphing = data.frame(xValues, yValues)
-  results = data.frame(Maximum_X = xNew, Maximum_Y = Yvalue, Iterations = index, Sigma = sigma)
+  results = data.frame(Optima_X = xNew, Optima_Y = Yvalue, Iterations = index, Sigma = sigma)
 
   # If the user specified TRUE, then a graph will be plotted
   if (isTRUE(graph)) {

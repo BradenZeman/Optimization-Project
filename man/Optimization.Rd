@@ -12,12 +12,11 @@ Sometimes in the process of finding an optima, we can do so analytically and wit
 Secant Method (\link{Secant.Rd}): A univariate, iterative root-finding method. We define two initial starting points and then calculate the secant line between them. Afterwards, we find the x-value at which the secant line is equal to zero. We then calculate a new secant line between this new point and the previous domain point. This process is repeated until the root is found or a stopping condition is met.
 
 Newton's Method (\link{Newton.Rd}, \link{Newton2.Rd}): A univariate, iterative root-finding method and a multivariate local linearization technique. In the univariate case, we define an initial starting point and calculate its tangent line. We then find the x-value at which the tangent line is equal to zero. Next, we calculate the tangent line at this new x-value. This process is repeated until the root is found or a stopping condition is met. In the multivariate case, we iterate according to a quadratic expansion of the Taylor series for the function.
-
-Nelder-Mead Algorithm (\link{NelderMead.Rd}): A multivariate local linearization technique. First we compute a triangular boundary and rank the three vertices (Worst, Bad, Best). We then calculate the centroid on the "best" face of the triangle (i.e. the face that connects the vertices Bad and Best). Next, we engage in an iterative process of reflection, expansion, contraction, or shrinkage of the triangle according to selection critera. This process is repeated until the root is found or a stopping condition is met.}
-
-\references{Givens, Geof H. Computational Statistics. 2nd ed., John Wiley & Sons Inc., 2013.}
+}
 
 \author{Braden Zeman}
+
+\references{Givens, Geof H. Computational Statistics. 2nd ed., John Wiley & Sons Inc., 2013.}
 
 \examples{
 # Below are examples of all univariate and multivariate techniques mentioned
@@ -47,4 +46,37 @@ f = expression(sqrt(4-x^2-y^2))
 # Below is Newton's method for a 3D space. Notice the inputs:
 # 1) a function, 2) a starting x input, 3) a starting y input.
 newton2(f, 0.5, 1)
+
+# Before proceeding, it would be best to be transparent and
+# inform that numerical optimization methods search for any
+# nearby optima. Thus, the methods within this package
+# will find local optima even if the user wants global.
+
+# Consider the following examples:
+
+# Gramacy & Lee Function
+f = expression((sin(10*pi*x)/(2*x)+(x-1)^4))
+bisection(f, 0.5, 2.5, graph = T)
+secant(f, 0.5, 2.5, graph = T)
+newton(f, 1.5, graph = T)
+
+# Drop-Wave function
+# Global Min at (0,0,-1)
+f = expression(-(1+cos(12*sqrt(x^2+y^2)))/(0.5*(x^2+y^2)+2))
+newton2(f, 1, 1, graph = T)
+newton2(f, 0.5, 0.5, graph = T)
+newton2(f, 0.05, 0.05, graph = T)
+
+# Levy Function N.13
+# Global Min at (1,1,0)
+f = expression(sin(3*pi*x)^2+(x-1)^2*(1+(sin(3*pi*y)^2))+(y-1)^2*(1+(sin(2*pi*y)^2)))
+newton2(f, 1.2, 1.2, graph = T)
+newton2(f, 1.01, 1.01, graph = T)
+
+# Schaffer Function N.2
+# Global Min at (0,0,0)
+f = expression(0.5+(sin(x^2-y^2)^2-0.5)/(1+0.001*(x^2+y^2))^2)
+newton2(f, 0.5, 0.5, graph = T)
+newton2(f, -1, -2, graph = T)
+
 }
