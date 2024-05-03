@@ -50,7 +50,9 @@ Lastly, we rename \eqn{\bf x^*} to \eqn{\bf x^{(t+1)}}. Now we have the updating
 
 If graph = TRUE, that same list of values will be returned with two graphs. The first graph plots a 3D surface image with the optima point highlighted. The second graph plots the contour lines with the optima hihglighted.}
 
-\references{Givens, Geof H. Computational Statistics. 2nd ed., John Wiley & Sons Inc., 2013.}
+\references{[1] Givens, Geof H. Computational Statistics. 2nd ed., John Wiley & Sons Inc., 2013.
+
+[2] "Virtual Library of Simulation Experiments:" Optimization Test Functions and Datasets, https://www.sfu.ca/~ssurjano/optimization.html}
 
 \author{Braden Zeman}
 

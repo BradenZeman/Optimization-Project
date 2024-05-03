@@ -16,7 +16,9 @@ Newton's Method (\link{Newton.Rd}, \link{Newton2.Rd}): A univariate, iterative r
 
 \author{Braden Zeman}
 
-\references{Givens, Geof H. Computational Statistics. 2nd ed., John Wiley & Sons Inc., 2013.}
+\references{[1] Givens, Geof H. Computational Statistics. 2nd ed., John Wiley & Sons Inc., 2013.
+
+[2] "Virtual Library of Simulation Experiments:" Optimization Test Functions and Datasets, https://www.sfu.ca/~ssurjano/optimization.html}
 
 \examples{
 # Below are examples of all univariate and multivariate techniques mentioned

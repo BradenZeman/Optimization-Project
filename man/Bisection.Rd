@@ -33,7 +33,9 @@
 
 If graph = TRUE, that same list of values will be returned with two graph outputs. The first graph shows to process of bisection across the iterations. The upper bound, midpoint, and lower bound are graphed at each index. In bisection, at each iterative step, the upper or lower bound is replaced by the midpoint. This graph shows this process. The second graph simply plots the function and highlights the optima point.}
 
-\references{Givens, Geof H. Computational Statistics. 2nd ed., John Wiley & Sons Inc., 2013.}
+\references{[1] Givens, Geof H. Computational Statistics. 2nd ed., John Wiley & Sons Inc., 2013.
+
+[2] "Virtual Library of Simulation Experiments:" Optimization Test Functions and Datasets, https://www.sfu.ca/~ssurjano/optimization.html}
 
 \author{Braden Zeman}
 
