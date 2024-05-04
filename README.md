@@ -58,7 +58,7 @@ sigma = Decimal place accuracy - stopping condition; Default is 0.0001
 
 graph = If TRUE, a graph will be returned; Otherwise, not used
 
-Multivariate
+Multivariate:
 
 newton2(f, a, b, n = 100, sigma = 0.0001, graph = FALSE)
 
@@ -76,4 +76,68 @@ graph = If TRUE, two graphs will be returned; Otherwise, not used
 
 # How to Install Package
 
+Prerequisites: 
 
+1) Must have R and Rstudio installed on your computer
+2) Make sure to download the package (plotly) using install.packages(plotly) in an R script
+
+Optimization Package Installation:
+
+1) Click on the green "Code" button above
+2) Click on the "Download Zip" button from the dropdown menu
+3) When everything is done downloading, open up the project in Rstudio
+4) Navigate to the top-left of your screen and click "Build"
+5) Click "Install Package" from the dropdown menu
+6) If your R session is reloaded and library(Optimization) is printed, then the package is installed
+7) Navigate to the top-left of your screen and click "File"
+8) Click "Close Project" from the dropdown menu
+9) Now anytime you open up an R script, you only need to type library(Optimization) for the package to be loaded into the session
+10) From here, you can experiment with the different numerical optimization techniques; to see what they do, refer to the help page
+
+# How to access the Help Documentation
+
+To access the main help file:
+
+help(Optimization)
+
+To access the bisection method help file:
+
+help(bisection)
+
+To access the secant method help file:
+
+help(secant)
+
+To access the univariate Newton's method help file:
+
+help(newton)
+
+To access the multivariate Newton's method help file:
+
+help(newton2)
+
+# Usage Examples
+
+First, we define a function of interest as an expression. 
+
+f = expression(-x^2+4*x)
+
+Below is the bisection method function. Notice the inputs: 1) a function, 2) lower boundary, 3) upper boundary.
+
+bisection(f, 0, 4, graph = T)
+
+Now we have the secant method function. Notice the inputs: 1) a function, 2) lower point, 4) upper point.
+
+secant(f, 0, 1, graph = T)
+
+Now we have Newton's method. Notice the inputs: 1) a function, 2) a starting point.
+
+newton(f, 1, graph = T)
+
+For multivariate Newton's method, we should define a multivariate function of interest as an expression.
+
+f = expression(sqrt(4-x^2-y^2))
+
+Below is Newton's method for 3D space. Notice the inputs: 1) a function, 2) a starting x input, 3) a starting y input.
+
+newton2(f, 0.5, 1, graph = T)
