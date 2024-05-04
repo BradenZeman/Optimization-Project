@@ -26,7 +26,7 @@
 
 \eqn{x^{(t+1)}=x^{(t)}-g'(x^{(t)})\frac{x^{(t)}-x^{(t-1)}}{g'(x^{(t)})-g'(x^{(t-1)})}}
 
-This updating equation comes from Newton's method but attempts to replace the second derivative if its calculation proves too difficult. Consider Newton's method (\link{Newton.Rd}) below:
+This updating equation comes from Newton's method but attempts to replace the second derivative if its calculation proves too difficult. Consider Newton's method below:
 
 \eqn{x^{(t+1)}=x^{(t)}-\frac{g'(x^{(t)})}{g''(x^{(t)})}=x^{(t)}-g'(x^{(t)})\frac{1}{g''(x^{(t)})}}
 
@@ -48,11 +48,11 @@ If graph = TRUE, that same list of values will be returned with a graph. The gra
 
 \references{[1] Givens, Geof H. Computational Statistics. 2nd ed., John Wiley & Sons Inc., 2013.
 
-[2] "Virtual Library of Simulation Experiments:" Optimization Test Functions and Datasets, https://www.sfu.ca/~ssurjano/optimization.html}
+[2] "Virtual Library of Simulation Experiments:" Optimization Test Functions and Datasets, \href{https://www.sfu.ca/~ssurjano/optimization.html}{https://www.sfu.ca/~ssurjano/optimization.html}}
 
 \author{Braden Zeman}
 
-\note{See related optimization functions \link{Bisection.Rd}, \link{Newton.Rd}, \link{Newton2.Rd}.}
+\note{See related optimization functions \link{bisection}, \link{newton}, \link{newton2}.}
 
 \examples{
 # The following examples will show how to run and utilize each of the

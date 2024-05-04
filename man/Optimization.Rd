@@ -1,5 +1,5 @@
 \name{Optimization}
-\alias{optimization}
+\alias{Optimization}
 
 \title{Optimization R Package}
 
@@ -7,18 +7,18 @@
 
 Sometimes in the process of finding an optima, we can do so analytically and without much difficulty. However, a create deal of functions in mathematics cannot be solved analytically and thus require numerical techniques to find a solution. This is where computers can provide a great deal of aid in the iterative endeavor of numerical estimation. The following R package provides several techniques for univariate and multivariate numerical estimation. As the name implies, univariate refers to optimization of a differentiable functions with a single variable, while multivariate refers to optimization of a differentiable function with multiple variables. There is also combinatorial optimization which attempts to find optima within a discrete domain, but no numerical strategies have been provided at this time.}
 
-\details{Bisection Method (\link{Bisection.Rd}): A univariate, iterative root-finding method. We define an upper and lower domain boundary and then calculate the midpoint. We then replace the upper or lower boundary with the midpoint according to a selection criteria. The midpoint is then recalculated. This process is repeated until the root is found or a stopping condition is met.
+\details{Bisection Method (\link{bisection}): A univariate, iterative root-finding method. We define an upper and lower domain boundary and then calculate the midpoint. We then replace the upper or lower boundary with the midpoint according to a selection criteria. The midpoint is then recalculated. This process is repeated until the root is found or a stopping condition is met.
 
-Secant Method (\link{Secant.Rd}): A univariate, iterative root-finding method. We define two initial starting points and then calculate the secant line between them. Afterwards, we find the x-value at which the secant line is equal to zero. We then calculate a new secant line between this new point and the previous domain point. This process is repeated until the root is found or a stopping condition is met.
+Secant Method (\link{secant}): A univariate, iterative root-finding method. We define two initial starting points and then calculate the secant line between them. Afterwards, we find the x-value at which the secant line is equal to zero. We then calculate a new secant line between this new point and the previous domain point. This process is repeated until the root is found or a stopping condition is met.
 
-Newton's Method (\link{Newton.Rd}, \link{Newton2.Rd}): A univariate, iterative root-finding method and a multivariate local linearization technique. In the univariate case, we define an initial starting point and calculate its tangent line. We then find the x-value at which the tangent line is equal to zero. Next, we calculate the tangent line at this new x-value. This process is repeated until the root is found or a stopping condition is met. In the multivariate case, we iterate according to a quadratic expansion of the Taylor series for the function.
+Newton's Method (\link{newton}, \link{newton2}): A univariate, iterative root-finding method and a multivariate local linearization technique. In the univariate case, we define an initial starting point and calculate its tangent line. We then find the x-value at which the tangent line is equal to zero. Next, we calculate the tangent line at this new x-value. This process is repeated until the root is found or a stopping condition is met. In the multivariate case, we iterate according to a quadratic expansion of the Taylor series for the function.
 }
 
 \author{Braden Zeman}
 
 \references{[1] Givens, Geof H. Computational Statistics. 2nd ed., John Wiley & Sons Inc., 2013.
 
-[2] "Virtual Library of Simulation Experiments:" Optimization Test Functions and Datasets, https://www.sfu.ca/~ssurjano/optimization.html}
+[2] "Virtual Library of Simulation Experiments:" Optimization Test Functions and Datasets, \href{https://www.sfu.ca/~ssurjano/optimization.html}{https://www.sfu.ca/~ssurjano/optimization.html}}
 
 \examples{
 # Below are examples of all univariate and multivariate techniques mentioned

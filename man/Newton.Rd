@@ -51,11 +51,11 @@ If graph = TRUE, that same list of values will be returned with a graph. The gra
 
 \references{[1] Givens, Geof H. Computational Statistics. 2nd ed., John Wiley & Sons Inc., 2013.
 
-[2] "Virtual Library of Simulation Experiments:" Optimization Test Functions and Datasets, https://www.sfu.ca/~ssurjano/optimization.html}
+[2] "Virtual Library of Simulation Experiments:" Optimization Test Functions and Datasets, \href{https://www.sfu.ca/~ssurjano/optimization.html}{https://www.sfu.ca/~ssurjano/optimization.html}}
 
 \author{Braden Zeman}
 
-\note{See related optimization functions \link{Bisection.Rd}, \link{Secant.Rd}, \link{Newton2.Rd}.}
+\note{See related optimization functions \link{bisection}, \link{secant}, \link{newton2}.}
 
 \examples{
 # The following examples will show how to run and utilize each of the
